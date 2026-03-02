@@ -18,7 +18,8 @@
     "@react-three/postprocessing": "^2.16.0",
     "framer-motion": "^10.16.0",
     "axios": "^1.6.0",
-    "swr": "^2.2.0"
+    "swr": "^2.2.0",
+    "lucide-react": "^0.300.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
