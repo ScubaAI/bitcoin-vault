@@ -1,12 +1,19 @@
 'use client';
 
-import { VaultScene } from '@/components/vault/VaultScene';
+import dynamic from 'next/dynamic';
+import { Canvas } from '@react-three/fiber';
 import { StatsOverlay } from '@/components/ui/StatsOverlay';
 import { motion } from 'framer-motion';
 
+// Dynamic import with SSR disabled for 3D scene
+const VaultScene = dynamic(
+  () => import('@/components/vault/VaultScene').then((mod) => mod.VaultScene),
+  { ssr: false }
+);
+
 /**
  * 🏦 Bitcoin Vault - Home Page
- * 
+ *
  * La visualización 3D más épica de la blockchain de Bitcoin
  * "The most secure vault in the universe, nya~!"
  */
@@ -14,7 +21,9 @@ export default function HomePage() {
   return (
     <main id="main-content" className="relative w-full h-screen overflow-hidden">
       {/* 🎮 Escena 3D Principal */}
-      <VaultScene />
+      <Canvas camera={{ position: [10, 10, 15], fov: 45 }}>
+        <VaultScene />
+      </Canvas>
       
       {/* 📊 Overlay de Stats */}
       <StatsOverlay />
