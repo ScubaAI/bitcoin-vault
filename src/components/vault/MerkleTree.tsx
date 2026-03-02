@@ -273,7 +273,6 @@ function MerkleNodeMesh({
       speed={isRoot ? 2 : 1}
       rotationIntensity={0.05}
       floatIntensity={isRoot ? 0.3 : 0.1}
-      floatingPosition={node.position}
     >
       <group position={node.position}>
         {/* Luz para nodos importantes */}
@@ -383,7 +382,8 @@ function ConnectionLine({ start, end, color, hovered }: ConnectionLineProps) {
   }, [points]);
 
   return (
-    <line geometry={lineGeometry}>
+    <line>
+      <primitive object={lineGeometry} attach="geometry" />
       <lineBasicMaterial
         color={color}
         transparent

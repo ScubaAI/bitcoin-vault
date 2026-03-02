@@ -65,8 +65,8 @@ export function LightningChannel({
   return (
     <group>
       {/* Línea del canal / Channel line */}
-      <mesh position={midpoint}>
-        <cylinderGeometry args={[thickness, thickness, distance, 8]} rotation={[Math.PI / 2, 0, 0]} />
+      <mesh position={midpoint} rotation={[Math.PI / 2, 0, 0]}>
+        <cylinderGeometry args={[thickness, thickness, distance, 8]} />
         <meshStandardMaterial
           color={color}
           transparent

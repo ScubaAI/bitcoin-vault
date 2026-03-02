@@ -86,7 +86,6 @@ export function Block({
       speed={1.5}
       rotationIntensity={0.1}
       floatIntensity={0.3}
-      floatingPosition={position}
     >
       <group position={position}>
         {/* ✨ Luz interior del bloque */}
