@@ -1,0 +1,819 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════
+   🌟 BITCOIN VAULT - NEON KAWAII FUTURIST THEME
+   "The most aesthetic vault in the universe, nya~!"
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* 🧡 Bitcoin Orange - Primary */
+  --btc-orange: #F7931A;
+  --btc-orange-light: #FFB347;
+  --btc-orange-dark: #E67E00;
+  --btc-orange-glow: rgba(247, 147, 26, 0.6);
+  
+  /* 💜 Cyber Purple - Secondary */
+  --cyber-purple: #A855F7;
+  --cyber-purple-light: #C084FC;
+  --cyber-purple-dark: #7C3AED;
+  --cyber-purple-glow: rgba(168, 85, 247, 0.5);
+  
+  /* 💖 Kawaii Pink - Accent */
+  --kawaii-pink: #FF6B9D;
+  --kawaii-pink-light: #FFB3D9;
+  --kawaii-pink-dark: #E91E63;
+  --kawaii-pink-glow: rgba(255, 107, 157, 0.5);
+  
+  /* 🩵 Neon Cyan - Tertiary */
+  --neon-cyan: #00F5FF;
+  --neon-cyan-light: #67E8F9;
+  --neon-cyan-dark: #06B6D4;
+  --neon-cyan-glow: rgba(0, 245, 255, 0.5);
+  
+  /* 💚 Matrix Green - Code */
+  --matrix-green: #00FF41;
+  --matrix-green-light: #4ADE80;
+  --matrix-green-dark: #22C55E;
+  --matrix-green-glow: rgba(0, 255, 65, 0.5);
+  
+  /* 🌙 Dark Theme Base */
+  --void-black: #030308;
+  --deep-space: #0A0A0F;
+  --cosmic-gray: #1A1A2E;
+  --stellar-gray: #16213E;
+  --nebula-gray: #252540;
+  --dust-gray: #3D3D5C;
+  
+  /* 🌟 Text Colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: #E2E8F0;
+  --text-muted: #94A3B8;
+  --text-faint: #64748B;
+  
+  /* ✨ Special Effects */
+  --glow-intensity: 0.8;
+  --blur-amount: 10px;
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🌐 BASE STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--void-black);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ✨ ANIMATED BACKGROUND - The Cosmic Void
+   ═══════════════════════════════════════════════════════════════ */
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, var(--btc-orange-glow) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, var(--cyber-purple-glow) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 30% at 20% 80%, var(--kawaii-pink-glow) 0%, transparent 40%);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: -2;
+  animation: cosmicPulse 8s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: -1;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+}
+
+@keyframes cosmicPulse {
+  0% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.35;
+    transform: scale(1.05);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🔤 TYPOGRAPHY - Monospace Kawaii
+   ═══════════════════════════════════════════════════════════════ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  background: linear-gradient(135deg, var(--btc-orange), var(--kawaii-pink), var(--cyber-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 40px var(--btc-orange-glow);
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--btc-orange);
+  text-shadow: 0 0 20px var(--btc-orange-glow);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  color: var(--text-primary);
+}
+
+p {
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  background: var(--cosmic-gray);
+  border: 1px solid rgba(247, 147, 26, 0.2);
+  border-radius: 8px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9em;
+  color: var(--matrix-green);
+  text-shadow: 0 0 10px var(--matrix-green-glow);
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+  position: relative;
+}
+
+pre::before {
+  content: '>_';;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  color: var(--btc-orange);
+  opacity: 0.5;
+  font-size: 0.75rem;
+}
+
+@keyframes titleGlow {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 20px var(--btc-orange-glow));
+  }
+  100% {
+    filter: brightness(1.1) drop-shadow(0 0 40px var(--kawaii-pink-glow));
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🎀 KAWAII SCROLLBAR - Because even scrollbars deserve love!
+   ═══════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--deep-space);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--btc-orange), var(--kawaii-pink));
+  border-radius: 10px;
+  border: 2px solid var(--deep-space);
+  box-shadow: 0 0 10px var(--btc-orange-glow);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--btc-orange-light), var(--kawaii-pink-light));
+  box-shadow: 0 0 20px var(--btc-orange-glow);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--btc-orange) var(--deep-space);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🔘 BUTTONS - Neon Glow Buttons
+   ═══════════════════════════════════════════════════════════════ */
+
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--void-black);
+  background: linear-gradient(135deg, var(--btc-orange), var(--btc-orange-light));
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+  box-shadow: 
+    0 0 20px var(--btc-orange-glow),
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.4) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 0 40px var(--btc-orange-glow),
+    0 8px 25px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--neon-cyan);
+  background: transparent;
+  border: 2px solid var(--neon-cyan);
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+  box-shadow: 
+    0 0 15px var(--neon-cyan-glow),
+    inset 0 0 15px rgba(0, 245, 255, 0.1);
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 245, 255, 0.1);
+  box-shadow: 
+    0 0 30px var(--neon-cyan-glow),
+    inset 0 0 30px rgba(0, 245, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Kawaii Pink Button */
+.btn-kawaii {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--void-black);
+  background: linear-gradient(135deg, var(--kawaii-pink), var(--kawaii-pink-light));
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+  box-shadow: 
+    0 0 20px var(--kawaii-pink-glow),
+    0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-kawaii:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 0 40px var(--kawaii-pink-glow),
+    0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🃏 CARDS - Holographic Glass Cards
+   ═══════════════════════════════════════════════════════════════ */
+
+.card {
+  position: relative;
+  background: rgba(26, 26, 46, 0.6);
+  backdrop-filter: blur(var(--blur-amount));
+  border: 1px solid rgba(247, 147, 26, 0.2);
+  border-radius: 20px;
+  padding: 1.5rem;
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(247, 147, 26, 0.05) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-smooth);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(247, 147, 26, 0.1),
+    transparent,
+    rgba(168, 85, 247, 0.1),
+    transparent,
+    rgba(255, 107, 157, 0.1),
+    transparent
+  );
+  animation: cardRotate 10s linear infinite;
+  opacity: 0;
+  transition: opacity var(--transition-smooth);
+}
+
+.card:hover {
+  border-color: rgba(247, 147, 26, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px var(--btc-orange-glow);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover::after {
+  opacity: 0.5;
+}
+
+@keyframes cardRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   📊 STATS DISPLAY - Neon Counter Style
+   ═══════════════════════════════════════════════════════════════ */
+
+.stat-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--btc-orange);
+  text-shadow: 0 0 20px var(--btc-orange-glow);
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(26, 26, 46, 0.4);
+  border: 1px solid rgba(247, 147, 26, 0.15);
+  border-radius: 16px;
+  transition: all var(--transition-smooth);
+}
+
+.stat-card:hover {
+  border-color: rgba(247, 147, 26, 0.4);
+  box-shadow: 0 0 25px var(--btc-orange-glow);
+  transform: scale(1.02);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🌟 GLOW EFFECTS - For that extra kawaii sparkle!
+   ═══════════════════════════════════════════════════════════════ */
+
+.glow-orange {
+  box-shadow: 0 0 20px var(--btc-orange-glow);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px var(--cyber-purple-glow);
+}
+
+.glow-pink {
+  box-shadow: 0 0 20px var(--kawaii-pink-glow);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px var(--neon-cyan-glow);
+}
+
+.glow-green {
+  box-shadow: 0 0 20px var(--matrix-green-glow);
+}
+
+.text-glow-orange {
+  text-shadow: 0 0 20px var(--btc-orange-glow);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 20px var(--neon-cyan-glow);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 20px var(--matrix-green-glow);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   📦 BADGES & TAGS
+   ═══════════════════════════════════════════════════════════════ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 100px;
+  background: rgba(247, 147, 26, 0.15);
+  border: 1px solid rgba(247, 147, 26, 0.3);
+  color: var(--btc-orange);
+}
+
+.badge-success {
+  background: rgba(0, 255, 65, 0.15);
+  border-color: rgba(0, 255, 65, 0.3);
+  color: var(--matrix-green);
+}
+
+.badge-warning {
+  background: rgba(255, 179, 71, 0.15);
+  border-color: rgba(255, 179, 71, 0.3);
+  color: var(--btc-orange-light);
+}
+
+.badge-info {
+  background: rgba(0, 245, 255, 0.15);
+  border-color: rgba(0, 245, 255, 0.3);
+  color: var(--neon-cyan);
+}
+
+.badge-purple {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: rgba(168, 85, 247, 0.3);
+  color: var(--cyber-purple);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   📥 INPUTS - Cyber Terminal Style
+   ═══════════════════════════════════════════════════════════════ */
+
+.input-cyber {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  background: rgba(10, 10, 15, 0.8);
+  border: 1px solid rgba(247, 147, 26, 0.2);
+  border-radius: 10px;
+  outline: none;
+  transition: all var(--transition-smooth);
+}
+
+.input-cyber::placeholder {
+  color: var(--text-faint);
+}
+
+.input-cyber:focus {
+  border-color: var(--btc-orange);
+  box-shadow: 
+    0 0 20px var(--btc-orange-glow),
+    inset 0 0 10px rgba(247, 147, 26, 0.1);
+}
+
+.input-cyber:hover:not(:focus) {
+  border-color: rgba(247, 147, 26, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🎯 LOADING STATES - Kawaii Spinners
+   ═══════════════════════════════════════════════════════════════ */
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--cosmic-gray);
+  border-top-color: var(--btc-orange);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.spinner-glow {
+  box-shadow: 0 0 15px var(--btc-orange-glow);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pulse loader */
+.pulse-loader {
+  display: flex;
+  gap: 6px;
+}
+
+.pulse-loader span {
+  width: 8px;
+  height: 8px;
+  background: var(--btc-orange);
+  border-radius: 50%;
+  animation: pulse 1.4s ease-in-out infinite;
+  box-shadow: 0 0 10px var(--btc-orange-glow);
+}
+
+.pulse-loader span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.pulse-loader span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🎨 UTILITY CLASSES
+   ═══════════════════════════════════════════════════════════════ */
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--btc-orange), var(--kawaii-pink), var(--cyber-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  position: relative;
+  background: var(--deep-space);
+  border-radius: 16px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, var(--btc-orange), var(--cyber-purple), var(--kawaii-pink));
+  border-radius: 18px;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.glass {
+  background: rgba(26, 26, 46, 0.4);
+  backdrop-filter: blur(var(--blur-amount));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.neon-border {
+  border: 1px solid var(--btc-orange);
+  box-shadow: 
+    0 0 10px var(--btc-orange-glow),
+    inset 0 0 10px rgba(247, 147, 26, 0.1);
+}
+
+/* Hover lift effect */
+.hover-lift {
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🌈 ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--btc-orange-glow);
+  }
+  50% {
+    box-shadow: 0 0 40px var(--btc-orange-glow);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(247, 147, 26, 0.2) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🎮 RESPONSIVE ADJUSTMENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  :root {
+    --blur-amount: 5px;
+  }
+  
+  .card {
+    padding: 1rem;
+  }
+  
+  .btn-primary, .btn-secondary, .btn-kawaii {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ♿ ACCESSIBILITY
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus states for accessibility */
+:focus-visible {
+  outline: 2px solid var(--btc-orange);
+  outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   🖨️ PRINT STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .card {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+  }
+  
+  .btn-primary, .btn-secondary, .btn-kawaii {
+    background: #333;
+    color: white;
+  }
+}

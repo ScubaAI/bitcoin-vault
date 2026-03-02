@@ -1,0 +1,8 @@
+{
+  "name": "Inter Bold",
+  "description": "Font metadata placeholder for Inter Bold - Used for Text3D in Three.js",
+  "version": "1.0",
+  "type": "font",
+  "format": "json",
+  "note": "This is a placeholder. In production, replace with actual Three.js font JSON file from https://threejs.org/examples/fonts/helvetiker_bold.typeface.json or similar"
+}

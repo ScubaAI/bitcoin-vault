@@ -1,0 +1,27 @@
+# dependencies
+node_modules
+.pnp
+.pnp-store
+
+# testing
+coverage
+
+# misc
+.DS_Store
+*.pem
+.env
+.env.*
+!.env.local
+
+# IDE
+.vscode
+.idea
+
+# Build
+.next
+out
+build
+dist
+
+# Debug
+npm-debug.log
